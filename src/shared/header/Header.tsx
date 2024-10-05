@@ -11,8 +11,9 @@ import { LINKS_ITEM } from "./const";
 import { useState, useEffect } from "react";
 import LinkItemProps from "./type";
 import Breadcrumbs from "../breadcrumbs/Breadcrumbs";
-import { useLocation, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { Auth } from "../authorization/Auth"; // Компонент авторизации
+import Weather from "../../pages/weather_page/Weather";
 
 const Header = () => {
   const [activeLink, setActiveLink] = useState<LinkItemProps>(LINKS_ITEM[0]);
@@ -51,7 +52,6 @@ const Header = () => {
 
   // Функция для перехода на страницу авторизации
 
-
   // Обработчик нажатия клавиши Enter в поисковой строке
   const handleSearchKeyDown = (e) => {
     if (e.key === "Enter" && searchQuery.trim()) {
@@ -75,7 +75,9 @@ const Header = () => {
               Тиксик
             </h4>
             <ChevronDown className="text-[#B3B3B3] w-[18px] h-[18px]" />
-            <CloudRainWind className="ml-12 text-[#DADADA]" />
+            <Link to="/weather">
+              <CloudRainWind className="ml-12 text-[#DADADA]" />
+            </Link>
             <p className="ml-2 font-medium text-base text-[#666666]">+8°С</p>
           </div>
 
@@ -85,9 +87,7 @@ const Header = () => {
             </h1>
           </div>
           <Auth>
-            <span
-              className="ml-5 font-medium text-base text-[#999999] cursor-pointer"
-            >
+            <span className="ml-5 font-medium text-base text-[#999999] cursor-pointer">
               Войти
             </span>
           </Auth>
@@ -145,7 +145,7 @@ const Header = () => {
                     onKeyDown={handleSearchKeyDown} // Обработчик нажатия клавиши Enter
                     placeholder="Введите фразу для поиска"
                     className="flex-grow text-base outline-none 
-                 w-full sm:w-1/2 md:w-1/3 lg:w-1/4" // адаптивная ширина
+                 sm:w-1/2 md:w-auto w-24"
                   />
                   <X
                     className="text-[#999999] cursor-pointer"
@@ -195,11 +195,7 @@ const Header = () => {
           {/* Войти в мобильной версии */}
           <Auth>
             <div className="flex mt-4">
-            
-              <span
-                className="ml-5 font-medium text-base text-[#999999] cursor-pointer"
-               
-              >
+              <span className="ml-5 font-medium text-base text-[#999999] cursor-pointer">
                 Войти
               </span>
             </div>
