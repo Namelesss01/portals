@@ -1,6 +1,6 @@
 import AfishaProps, { AfishaListProps, AfishaTimeProps } from "./type";
 import gentelmen from "@/assets/images/gentelmen.png";
-import greenBook from "@/assets/images/greenBook.png";
+import greenBook from "@/assets/images/greenbook.png";
 import angel from "@/assets/images/angel.png";
 
 export const AFISHA_LIST: AfishaListProps[] = [
