@@ -30,7 +30,7 @@ const Breadcrumbs: React.FC<BreadcrumbsProps> = ({ history }) => {
                 </BreadcrumbItem>
               ) : (
                 <BreadcrumbItem>
-                  <BreadcrumbPage className="text-[#E1E1E1]">
+                  <BreadcrumbPage className="text-[#a2a2a2]">
                     {item.label}
                     <hr className="mt-[2px] border-black border-[1px]" />
                   </BreadcrumbPage>

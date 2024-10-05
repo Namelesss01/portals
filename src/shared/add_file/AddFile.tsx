@@ -10,6 +10,8 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 
+import { Link } from "react-router-dom";
+
 import WeatherAside from "../global_aside/weather_aside/WeatherAside";
 import RoadstatusAside from "../global_aside/roadStatus_asede/RoadStatusAside";
 import FlightsAside from "../global_aside/flights_aside/FlightsAside";
@@ -77,9 +79,11 @@ const AddFile = () => {
                   <SelectItem value="system">Основные файлы</SelectItem>
                 </SelectContent>
               </Select>
-              <Button className="text-[10px] font-medium py-4 px-12 mt-8">
-                ОТПРАВИТЬ
-              </Button>
+              <Link to="/archive_page">
+                <Button className="text-[10px] font-medium py-4 px-12 mt-8">
+                  ОТПРАВИТЬ
+                </Button>
+              </Link>
             </form>
           </div>
         </div>

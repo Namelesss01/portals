@@ -82,7 +82,7 @@ const Header = () => {
           </div>
 
           <div className="flex justify-center w-full">
-            <h1 className="h-[24px] font-black text-lg text-[#000000]">
+            <h1 className="h-[24px] ml-16 lg:ml-0 font-black text-lg text-[#000000]">
               Булунский Портал
             </h1>
           </div>
@@ -178,7 +178,7 @@ const Header = () => {
       {/* Мобильное бургер-меню */}
       {isMenuOpen && (
         <div className="lg:hidden bg-white shadow-lg rounded-md p-4 absolute w-full top-0 left-0 z-50">
-          <div className="flex justify-between items-center">
+          <div className="flex justify-between items-center mb-3">
             <h1 className="font-black text-lg text-[#000000]">Меню</h1>
             <X className="text-[#000000] cursor-pointer" onClick={toggleMenu} />
           </div>

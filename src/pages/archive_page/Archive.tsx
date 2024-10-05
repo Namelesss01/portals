@@ -40,7 +40,7 @@ const Archive = () => {
             <FlightsAside />
           </div>
 
-          <div className="-mb-[120%] mt-24 mx-14 xl:-mt-[310px] xl:mx-5 relative">
+          <div className="-mb-[120%] mt-24 mx-14 xl:-mt-[310px] xl:mx-5 relative hidden lg:block">
             <img
               src={mayak}
               alt=""

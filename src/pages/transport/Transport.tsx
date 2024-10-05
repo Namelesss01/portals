@@ -9,15 +9,15 @@ import FlightsAside from "@/shared/global_aside/flights_aside/FlightsAside";
 import TaxiScheduleAside from "@/shared/global_aside/taxiSchedule_aside/TaxiScheduleAside";
 
 const TimeBlock = ({ title, times }) => {
-  const [selectedTime, setSelectedTime] = useState(null); 
-  const isSmallBlock = times.length === 4; 
+  const [selectedTime, setSelectedTime] = useState(null);
+  const isSmallBlock = times.length === 4;
 
   const timeOffset = isSmallBlock ? 65 : 50;
 
   return (
     <div className="max-w-[200px] mx-auto">
       <div>
-        <p className="text-center text-lg">{title}</p>
+        <p className="text-center text-sm lg:text-lg">{title}</p>
         <div className="flex gap-4 mt-8 justify-center relative">
           <div className="bg-[#DEE0E3] h-[270px] w-[5px] mt-2 relative">
             <div className="h-3 w-3 bg-[#DEE0E3] rounded-full  -ml-[3px]"></div>
@@ -29,7 +29,7 @@ const TimeBlock = ({ title, times }) => {
                 top: selectedTime
                   ? `${times.indexOf(selectedTime) * timeOffset}px`
                   : "-10px",
-              }} 
+              }}
             >
               <div className="h-3 w-3 bg-[#fff] rounded-full absolute left-1 top-1"></div>
             </div>
@@ -54,7 +54,7 @@ const TimeBlock = ({ title, times }) => {
             style={{
               top: selectedTime
                 ? `${times.indexOf(selectedTime) * (isSmallBlock ? 68 : 53)}px`
-                : "3px", 
+                : "3px",
               left: "20px",
             }}
           />
@@ -68,8 +68,10 @@ const Transport = () => {
   return (
     <div className="max-w-[1250px] mx-auto mt-5 flex">
       <div className="max-w-[848px] mx-auto">
-        <h2 className="text-2xl mb-5">Расписание движения маршрутного такси</h2>
-        <div className="bg-[#fff] px-8 p-5">
+        <h2 className="text-2xl mb-5 pl-6">
+          Расписание движения маршрутного такси
+        </h2>
+        <div className="bg-[#fff] px- p-5">
           <h3 className="text-center mb-5 text-xs font-semibold">
             ПОНЕДЕЛЬНИК - ПЯТНИЦА
           </h3>

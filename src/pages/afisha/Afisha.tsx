@@ -31,9 +31,9 @@ const Afisha = () => {
   };
 
   return (
-    <div className="container max-w-[1250px] mx-auto mt-5 overflow-hidden">
-      <h2 className="font-normal text-2xl text-[#333333]">Киноафиша</h2>
-      <div className="flex-wrap md:flex">
+    <div className="container max-w-[1250px] mx-auto mt-5">
+      <h2 className="font-normal text-2xl  pl-6 text-[#333333]">Киноафиша</h2>
+      <div className="px-6 flex-wrap md:flex">
         <div className="max-w-[870px] min-h-[380px] rounded-[6px] mt-[60px]">
           {AFISHA_ITEM.map((afisha, index) => (
             <div className="pb-[120px]">
@@ -64,7 +64,7 @@ const Afisha = () => {
               </div>
               <Separator className="bg-[#FFFFFF] mt-[26px] w-full" />
               <div
-                className="flex w-[820px] h-[50px] justify-between ml-7 rounded-[3px] mt-4"
+                className="flex w-[820px] h-[50px] justify-between ml-0 lg:ml-7 rounded-[3px] mt-4"
                 style={{
                   backgroundColor:
                     activeTabs[index].day === afisha.day
