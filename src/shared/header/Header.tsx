@@ -82,7 +82,7 @@ const Header = () => {
           </div>
 
           <div className="flex justify-center w-full">
-            <h1 className="h-[24px] ml-16 lg:ml-0 font-black text-lg text-[#000000]">
+            <h1 className="h-[24px] ml-16 lg:ml font-black text-lg text-[#000000]">
               Булунский Портал
             </h1>
           </div>
