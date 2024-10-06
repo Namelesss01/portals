@@ -58,7 +58,7 @@ function App() {
         <Route path="/news" element={<News />} />
         <Route path="/announcement" element={<Announcement />} />
         <Route path="/afisha" element={<Afisha />} />
-        <Route path="/archive-page" element={<Archive />} />
+        <Route path="/archive_page" element={<Archive />} />
         <Route path="/add-file" element={<AddFile />} />
         <Route path="/weather" element={<Weather />} />
         <Route path="/administration" element={<AdministrationSection />} />
