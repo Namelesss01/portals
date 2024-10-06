@@ -54,17 +54,17 @@ function App() {
         <Route path="/account-payment" element={<AccountPayment />} />
         <Route path="/devices-reduct" element={<DevicesReduct />} />
         {/* Обычные маршруты */}
-        <Route path="" element={<Home />} />
+        <Route path="/" element={<Home />} />
         <Route path="/news" element={<News />} />
         <Route path="/announcement" element={<Announcement />} />
-        {/* Маршрут на авторизацию */}
         <Route path="/afisha" element={<Afisha />} />
-        <Route path="/archive_page" element={<Archive />} />
+        <Route path="/archive-page" element={<Archive />} />
         <Route path="/add-file" element={<AddFile />} />
         <Route path="/weather" element={<Weather />} />
         <Route path="/administration" element={<AdministrationSection />} />
         <Route path="/search-result" element={<SearchResults />} />
         <Route path="/transport" element={<Transport />} />
+        <Route path="*" element={<NotFound />} />
       </Routes>
       <Footer />
     </div>
