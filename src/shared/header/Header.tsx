@@ -118,9 +118,9 @@ const Header = () => {
             {!isSearchActive ? (
               <div className="flex justify-center gap-9 w-full">
                 {LINKS_ITEM.map((link) => (
-                  <a
+                  <Link
                     key={link.label}
-                    href={link.href}
+                    to={link.href}
                     className="text-gray-600 font-medium"
                     onClick={() => handleLinkClick(link)}
                   >
@@ -128,7 +128,7 @@ const Header = () => {
                     {activeLink.label === link.label && (
                       <hr className="mt-4 border-[#1875F0] border-[2px] rounded-full" />
                     )}
-                  </a>
+                  </Link>
                 ))}
               </div>
             ) : (
