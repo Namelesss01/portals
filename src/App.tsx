@@ -55,7 +55,7 @@ function App() {
         {/* Обычные маршруты */}
         <Route path="" element={<Home />} />
         <Route path="/news" element={<News />} />
-        <Route path="/announcement" element={<Announcement />} />{" "}
+        <Route path="/announcement" element={<Announcement />} />
         {/* Маршрут на авторизацию */}
         <Route path="/afisha" element={<Afisha />} />
         <Route path="/archive_page" element={<Archive />} />
@@ -64,7 +64,6 @@ function App() {
         <Route path="/administration" element={<AdministrationSection />} />
         <Route path="/search-result" element={<SearchResults />} />
         <Route path="/transport" element={<Transport />} />
-        <Route path="/search-results" element={<SearchResults />} />
       </Routes>
       <Footer />
     </div>
