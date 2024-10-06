@@ -1,4 +1,5 @@
 {
+  "rewrites": [{ "source": "/(.*)", "destination": "/" }],
   "routes": [
     {
       "src": "/",
@@ -12,7 +13,7 @@
       "src": "/announcement",
       "dest": "/announcement"
     },
-    { 
+    {
       "src": "/afisha",
       "dest": "/afisha"
     },
