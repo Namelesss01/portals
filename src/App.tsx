@@ -45,6 +45,7 @@ function App() {
       {isAccountPage ? <AccountHeader /> : <Header className="pt-5" />}
 
       <Routes>
+        <Route path="/accont-home" element={<AccountHome />} />
         <Route path="/account-info" element={<AccountInfo />} />
         <Route path="/account" element={<AccountHome />} />
         <Route path="/account-devices" element={<AccountDevices />} />
