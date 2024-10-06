@@ -64,7 +64,6 @@ function App() {
         <Route path="/administration" element={<AdministrationSection />} />
         <Route path="/search-result" element={<SearchResults />} />
         <Route path="/transport" element={<Transport />} />
-        <Route path="*" element={<NotFound />} />
       </Routes>
       <Footer />
     </div>
