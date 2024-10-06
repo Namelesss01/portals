@@ -11,9 +11,8 @@ import { LINKS_ITEM } from "./const";
 import { useState, useEffect } from "react";
 import LinkItemProps from "./type";
 import Breadcrumbs from "../breadcrumbs/Breadcrumbs";
-import { Link, useLocation, useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { Auth } from "../authorization/Auth"; // Компонент авторизации
-import Weather from "../../pages/weather_page/Weather";
 
 const Header = () => {
   const [activeLink, setActiveLink] = useState<LinkItemProps>(LINKS_ITEM[0]);
@@ -75,14 +74,12 @@ const Header = () => {
               Тиксик
             </h4>
             <ChevronDown className="text-[#B3B3B3] w-[18px] h-[18px]" />
-            <Link to="/weather">
-              <CloudRainWind className="ml-12 text-[#DADADA]" />
-            </Link>
+            <CloudRainWind className="ml-12 text-[#DADADA]" />
             <p className="ml-2 font-medium text-base text-[#666666]">+8°С</p>
           </div>
 
           <div className="flex justify-center w-full">
-            <h1 className="h-[24px] ml-16 lg:ml font-black text-lg text-[#000000]">
+            <h1 className="h-[24px] font-black text-lg text-[#000000]">
               Булунский Портал
             </h1>
           </div>
@@ -145,7 +142,7 @@ const Header = () => {
                     onKeyDown={handleSearchKeyDown} // Обработчик нажатия клавиши Enter
                     placeholder="Введите фразу для поиска"
                     className="flex-grow text-base outline-none 
-                 sm:w-1/2 md:w-auto w-24"
+                 w-full sm:w-1/2 md:w-1/3 lg:w-1/4" // адаптивная ширина
                   />
                   <X
                     className="text-[#999999] cursor-pointer"

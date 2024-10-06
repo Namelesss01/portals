@@ -20,7 +20,7 @@ export const HOME_ITEM: HomeProps[] = [
     imgURL: ads,
     title: "Ads",
     text: "Объявления",
-    link: "/Ads",
+    link: "/Announcement",
   },
   {
     id: 3,
