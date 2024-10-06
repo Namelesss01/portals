@@ -7,6 +7,8 @@ import {
   X,
 } from "lucide-react";
 import { Separator } from "../../components/ui/separator";
+
+import { Link } from "react-router-dom";
 import { LINKS_ITEM } from "./const";
 import { useState, useEffect } from "react";
 import LinkItemProps from "./type";
