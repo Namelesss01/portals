@@ -3,20 +3,20 @@ import {
   ChevronDown,
   CloudRainWind,
   Search,
-  User,
   X,
 } from "lucide-react";
 import { Separator } from "../../components/ui/separator";
-
 import { Link } from "react-router-dom";
 import { LINKS_ITEM } from "./const";
 import { useState, useEffect } from "react";
 import LinkItemProps from "./type";
 import Breadcrumbs from "../breadcrumbs/Breadcrumbs";
 import { useLocation, useNavigate } from "react-router-dom";
-import { Auth } from "../authorization/Auth"; // Компонент авторизации
+import { Auth } from "../authorization/Auth";
+import useAuthStatus from "../../hooks/useAuthStatus";
 
 const Header = () => {
+  const { isLoggedIn, isCheckingStatus } = useAuthStatus(); // Using the auth status hook
   const [activeLink, setActiveLink] = useState<LinkItemProps>(LINKS_ITEM[0]);
   const [history, setHistory] = useState<LinkItemProps[]>([LINKS_ITEM[0]]);
   const [isSearchActive, setIsSearchActive] = useState(false);
@@ -85,13 +85,30 @@ const Header = () => {
               Булунский Портал
             </h1>
           </div>
-          <Auth>
-            <span className="ml-5 font-medium text-base text-[#999999] cursor-pointer">
-              Войти
-            </span>
-          </Auth>
+
+          {/* Conditionally render the login button or account link */}
+          {!isCheckingStatus && (
+            <>
+              {isLoggedIn ? (
+                <Link
+                  to="/account"
+                  className="ml-5 font-medium text-base text-[#999999]"
+                >
+                  Личный кабинет
+                </Link>
+              ) : (
+                <Auth>
+                  <span className="ml-5 font-medium text-base text-[#999999] cursor-pointer">
+                    Войти
+                  </span>
+                </Auth>
+              )}
+            </>
+          )}
         </div>
+
         <Separator className="bg-[#DADADA] mt-[26px] mb-[26px] w-full" />
+
         <div className="flex justify-between items-center mx-8">
           <div className="flex items-center">
             {/* Бургер-меню */}
@@ -135,16 +152,15 @@ const Header = () => {
               </div>
             ) : (
               <div className="relative w-full">
-                <div className="flex items-center border border-[#DADADA] rounded-md px-4 py-2 w-full mb-5">
-                  <Search className="text-[#999999] mr-2 block" />
+                <div className="flex items-center border border-[#DADADA] rounded-md px-4 py-2 lg:w-full mb-5">
+                  <Search className="text-[#999999] mr-2 " />
                   <input
                     type="text"
                     value={searchQuery}
                     onChange={(e) => setSearchQuery(e.target.value)}
                     onKeyDown={handleSearchKeyDown} // Обработчик нажатия клавиши Enter
                     placeholder="Введите фразу для поиска"
-                    className="flex-grow text-base outline-none 
-                 w-full sm:w-1/2 md:w-1/3 lg:w-1/4" // адаптивная ширина
+                    className="flex-grow text-base outline-none text-sm sm:text-base"
                   />
                   <X
                     className="text-[#999999] cursor-pointer"
@@ -163,7 +179,7 @@ const Header = () => {
             />
             {!isSearchActive && (
               <Search
-                className="text-[#999999] cursor-pointer block -mt-5"
+                className="text-[#999999] cursor-pointer hidden lg:block -mt-5"
                 onClick={() => {
                   setIsSearchActive(true); // Активируем поиск
                   setSearchQuery(""); // Очищаем поле поиска
@@ -192,13 +208,26 @@ const Header = () => {
             </a>
           ))}
           {/* Войти в мобильной версии */}
-          <Auth>
-            <div className="flex mt-4">
-              <span className="ml-5 font-medium text-base text-[#999999] cursor-pointer">
-                Войти
-              </span>
-            </div>
-          </Auth>
+          {!isCheckingStatus && (
+            <>
+              {isLoggedIn ? (
+                <Link
+                  to="/account"
+                  className="ml-5 font-medium text-base text-[#999999]"
+                >
+                  Личный кабинет
+                </Link>
+              ) : (
+                <Auth>
+                  <div className="flex mt-4">
+                    <span className="ml-5 font-medium text-base text-[#999999] cursor-pointer">
+                      Войти
+                    </span>
+                  </div>
+                </Auth>
+              )}
+            </>
+          )}
         </div>
       )}
 

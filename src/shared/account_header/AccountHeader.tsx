@@ -179,7 +179,7 @@ const AccountHeader = () => {
                     className="flex gap-2 items-start block px-4 py-2 text-left w-full text-gray-800 hover:text-[#1875F0]"
                     onClick={handleLogout}
                   >
-                    <LogOut className="w-4 h-4" />
+                    <LogOut className="w-5 h-5 mt-1" />
                     Выход
                   </button>
                 </div>
