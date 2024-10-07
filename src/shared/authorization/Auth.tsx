@@ -23,7 +23,7 @@ interface LayoutProps {
 }
 
 export function Auth(props: LayoutProps) {
-  const dialogRef = useRef<HTMLDivElement | null>(null); 
+  const dialogRef = useRef<HTMLDivElement | null>(null);
   const [displayName, setDisplayName] = useState<string>("");
   const [email, setEmail] = useState<string>("");
   const [password, setPassword] = useState<string>("");
@@ -86,14 +86,17 @@ export function Auth(props: LayoutProps) {
   }, [activeTab]);
 
   useEffect(() => {
-    document.addEventListener("mousedown", handleClickOutside); 
+    document.addEventListener("mousedown", handleClickOutside);
     return () => {
-      document.removeEventListener("mousedown", handleClickOutside); 
+      document.removeEventListener("mousedown", handleClickOutside);
     };
   }, []);
 
   const handleClickOutside = (event: MouseEvent) => {
-    if (dialogRef.current && !dialogRef.current.contains(event.target as Node)) {
+    if (
+      dialogRef.current &&
+      !dialogRef.current.contains(event.target as Node)
+    ) {
       handleClose();
     }
   };
@@ -103,7 +106,10 @@ export function Auth(props: LayoutProps) {
       <DialogTrigger onClick={handleOpen} asChild>
         {props.children}
       </DialogTrigger>
-      <DialogContent ref={dialogRef} сlassName="flex justify-center items-center min-w-[462px] min-h-[380px] sm:max-w-[328px] max-h-[366px] mx-auto">
+      <DialogContent
+        ref={dialogRef}
+        сlassName="flex justify-center items-center min-w-[462px] min-h-[380px] sm:max-w-[328px] max-h-[366px] mx-auto"
+      >
         <Tabs defaultValue="auth">
           <TabsList className="grid w-full grid-cols-2">
             <TabsTrigger value="auth" onClick={() => setActiveTab("auth")}>
@@ -142,18 +148,17 @@ export function Auth(props: LayoutProps) {
                   />
                 </div>
                 {loginError && <p className="text-red-500">{error}</p>}
-                <div className="flex items-center gap-3 pt-6 pb-4">
-                  <Checkbox id="terms" className="border-[#A0A0A2]" />
-                  <label
-                    htmlFor="terms"
-                    className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
-                  >
-                    Запомнить меня
-                  </label>
-                  <a
-                    href="#"
-                    className="text-xs font-medium text-[#1875F0] pl-[150px]"
-                  >
+                <div className="flex items-center justify-between pt-6 pb-4">
+                  <div className="flex items-center gap-2">
+                    <Checkbox id="terms" className="border-[#A0A0A2]" />
+                    <label
+                      htmlFor="terms"
+                      className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+                    >
+                      Запомнить меня
+                    </label>
+                  </div>
+                  <a href="#" className="text-xs font-medium text-[#1875F0]">
                     Забыли пароль?
                   </a>
                 </div>
